@@ -1,8 +1,3 @@
-import {englishToChinese, chineseToEnglish} from './translate';
+import { englishToChinese, chineseToEnglish, getPinyin } from './translate'
 
-export { englishToChinese, chineseToEnglish}
-
-
-
-
-
+export { englishToChinese, chineseToEnglish, getPinyin }

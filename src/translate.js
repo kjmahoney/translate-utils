@@ -25,7 +25,6 @@ const englishToChinese = async text => {
         translation: translation,
         pinyin: getPinyin(translation),
     }
-    console.log(translateObject)
     return translateObject
 }
 
@@ -41,8 +40,7 @@ const chineseToEnglish = async hanzi => {
         translation: translation,
         pinyin: getPinyin(hanzi),
     }
-    console.log(translateObject)
     return translateObject
 }
 
-export { englishToChinese, chineseToEnglish }
+export { englishToChinese, chineseToEnglish, getPinyin }
