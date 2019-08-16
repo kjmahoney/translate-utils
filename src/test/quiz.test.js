@@ -1,12 +1,32 @@
-import { englishIsCorrect } from '../quiz';
+import { inputIsCorrect } from '../quiz';
 import {expect} from 'chai';
 
 describe('quiz', ()=> {
-    it('english is correct should return true if input is correct', async () => {
+    it('should return true if user puts in correct English translation', async () => {
         const prompt ='狗'
         const userInput = 'dog'
-        const result = await englishIsCorrect(prompt, userInput);
-        console.log('here' + result)
+        const result = await inputIsCorrect(prompt, userInput);
         expect(result).to.equal(true)
+    })
+
+    it('should return false if user puts in incorrect English translation', async () => {
+        const prompt ='狗'
+        const userInput = 'cat'
+        const result = await inputIsCorrect(prompt, userInput);
+        expect(result).to.equal(false)
+    })
+
+    it('should return true if user puts in correct Chinese translation', async () => {
+        const prompt ='dog'
+        const userInput = '狗'
+        const result = await inputIsCorrect(prompt, userInput);
+        expect(result).to.equal(true)
+    })
+
+    it('should return false if user puts in incorrect Chinese translation', async () => {
+        const prompt ='dog'
+        const userInput = '猫'
+        const result = await inputIsCorrect(prompt, userInput);
+        expect(result).to.equal(false)
     })
 })
