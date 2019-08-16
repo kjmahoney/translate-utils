@@ -6,7 +6,7 @@ describe('quiz', ()=> {
         const prompt ='狗'
         const userInput = 'dog'
         const result = await englishIsCorrect(prompt, userInput);
-        console.log(result)
+        console.log('here' + result)
         expect(result).to.equal(true)
     })
 })
