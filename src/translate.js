@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import 'dotenv/config';
 import pinyin from 'pinyin';
+import isChinese from 'is-chinese';
 
 const key = process.env.API_KEY;
 
@@ -13,34 +14,21 @@ const getPinyin = text => {
     return newPinyinArray.join('');
 };
 
-const englishToChinese = async text => {
-    const lang = 'en-zh';
-    const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${key}&text=${text}&lang=${lang}`;
+const translate = async word => {
+    const lang = isChinese(word) ? 'zh-en' : 'en-zh';
+    const text = isChinese(word) ? encodeURI(word) : word;
 
-    const word = await fetch(url);
-    const json = await word.json();
-    const translation = json.text[0];
+    const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${key}&text=${text}&lang=${lang}`;
+    const response = await fetch(url);
+    const json = await response.json();
+    const translation = json.text[0].toLowerCase();
+
+    const pinyin = isChinese(word) ? getPinyin(word) : getPinyin(translation);
 
     const translateObject = {
-        translation: translation,
-        pinyin: getPinyin(translation),
+        translation,
+        pinyin,
     };
     return translateObject;
 };
-
-const chineseToEnglish = async hanzi => {
-    const lang = 'zh-en';
-    const text = encodeURI(hanzi);
-    const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${key}&text=${text}&lang=${lang}`;
-    const word = await fetch(url);
-    const json = await word.json();
-    const translation = json.text[0];
-
-    const translateObject = {
-        translation: translation,
-        pinyin: getPinyin(hanzi),
-    };
-    return translateObject;
-};
-
-export { englishToChinese, chineseToEnglish, getPinyin };
+export { translate, getPinyin };
