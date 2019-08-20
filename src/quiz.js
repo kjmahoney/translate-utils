@@ -1,11 +1,8 @@
-import isChinese from 'is-chinese';
-import { chineseToEnglish, englishToChinese } from './translate';
+import { translate } from './translate';
 
-const inputIsCorrect = async (prompt, input) => {
-    const { translation } = isChinese(prompt)
-        ? await chineseToEnglish(prompt)
-        : await englishToChinese(prompt);
-    return input === translation.toLowerCase();
+const translationIsCorrect = async (prompt, input) => {
+    const { translation } = await translate(prompt);
+    return input === translation;
 };
 
-export { inputIsCorrect };
+export { translationIsCorrect };
