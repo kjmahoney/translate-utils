@@ -7,15 +7,21 @@
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
     "prettier": "1.18.2"
   },
   "dependencies": {
+    "@babel/register": "^7.5.5",
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
     "dotenv": "^8.0.0",
+    "is-chinese": "^1.2.9",
     "node-fetch": "^2.6.0",
     "pinyin": "^2.9.0"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "mocha --require @babel/register --require babel-polyfill --watch"
   }
 }

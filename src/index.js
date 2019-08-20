@@ -1,3 +1,4 @@
-import { englishToChinese, chineseToEnglish, getPinyin } from './translate'
+import { englishToChinese, chineseToEnglish, getPinyin } from './translate';
+import { inputIsCorrect } from './quiz';
 
-export { englishToChinese, chineseToEnglish, getPinyin }
+export { englishToChinese, chineseToEnglish, getPinyin, inputIsCorrect };
