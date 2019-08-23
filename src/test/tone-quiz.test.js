@@ -11,12 +11,12 @@ describe('tone quiz', () => {
     it('should return false if user guesses incorrect tone', () => {
         const prompt = '狗';
         const userInput = 2
-        expect(toneIsCorrect(userInput, prompt)).to.equal(true)
+        expect(toneIsCorrect(userInput, prompt)).to.equal(false)
     })
 
     it('should be able to evaluate multiple characters', () => {
-        const prompt = '狗';
-        const userInput = 2
+        const prompt = '我喜欢吃热狗';
+        const userInput = [3,3,1,1,4,3]
         expect(toneIsCorrect(userInput, prompt)).to.equal(true)
     })
 });
