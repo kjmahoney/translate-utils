@@ -141,6 +141,8 @@ var toneIsCorrect = function toneIsCorrect(input, character) {
   return answer === correctTone;
 };
 
+require('babel-polyfill');
+
 exports.getPinyin = getPinyin;
 exports.toneIsCorrect = toneIsCorrect;
 exports.translate = translate;
