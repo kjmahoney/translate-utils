@@ -22,7 +22,7 @@
     "pinyin": "^2.9.0"
   },
   "scripts": {
-    "build": "babel src/index.js --out-dir dist/ --copy-file",
+    "build": "babel src/ --out-file index.js",
     "test": "mocha --require @babel/register --require @babel/polyfill --watch"
   }
 }
