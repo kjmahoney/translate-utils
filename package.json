@@ -10,9 +10,7 @@
     "@babel/preset-env": "^7.5.5",
     "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
-    "prettier": "1.18.2",
-    "rollup": "^1.20.3",
-    "rollup-plugin-babel": "^4.3.3"
+    "prettier": "1.18.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
@@ -21,11 +19,9 @@
     "dotenv": "^8.0.0",
     "is-chinese": "^1.2.9",
     "node-fetch": "^2.6.0",
-    "pinyin": "^2.9.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "pinyin": "^2.9.0"
   },
   "scripts": {
-    "build": "npx rollup --config && babel dist/bundle.js -o index.js --require babel-polyfill ",
     "test": "mocha --require @babel/register --require @babel/polyfill --watch"
   }
 }
