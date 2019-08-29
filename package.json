@@ -1,5 +1,5 @@
 {
-  "name": "translate-utils",
+  "name": "chinese-translate-utils",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/register": "^7.5.5",
     "chai": "^4.2.0",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.1.0",
     "is-chinese": "^1.2.9",
     "node-fetch": "^2.6.0",
     "pinyin": "^2.9.0"
